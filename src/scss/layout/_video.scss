@@ -1,0 +1,44 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.video{
+
+    position:relative;
+    min-height: 50rem;
+    max-height: 70rem;
+    overflow: hidden;//para esconder parte del video
+    .overlay{
+        position: absolute;
+        background-color: rgb(126,2,195);
+        background: linear-gradient(270deg, rgba(126, 2, 195, 0.5) 0%, rgba(255, 0, 110, 0.3) 100%);
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    video{
+        width:auto ;
+        display: block;
+
+        @include m.desktop{
+            width: 100%;
+        }
+    }
+}
+.content-video{
+    z-index: 1; //por la posicion relativa del video con 0 no pasa nada con el valir 1 vasta para que se superpoinga y con -1 se va a atras
+
+    h2{
+        color: v.$white;
+    }
+    p{
+        color: v.$white;
+        background-color: v.$rose;
+        width: fit-content;
+        font-size: 400;
+        margin-top: -5rem;
+        padding: 1rem;
+
+    }
+}
